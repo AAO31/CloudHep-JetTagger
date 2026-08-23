@@ -77,7 +77,7 @@ void TriggerEffi2(const char *triggersToStudy = "HLT_AK8PFJet360_TrimMass30",
                    const char *treeName = "Events",
                    const char *jsonFile = "/code/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt") {
 
-    const char* baseDir = "/code/Datasets/JetHT30558/";
+    const char* baseDir = "/code/Datasets/JetHT30558/"; // Cambiar ruta como corresponda
 
     // --- LISTA DE 24 ARCHIVOS (subconjunto de los 72) ---
     const char* files[] = {

@@ -50,9 +50,10 @@ void TriggerEffi2(const char *triggersToStudy = "HLT_AK8PFJet360_TrimMass30",
 
 1. **Carga del JSON**: `LoadJSON()` lee el Golden JSON y construye un conjunto (`std::set`) de todos los pares `(run, lumi)` certificados como validos. Solo eventos cuyo `(run, luminosityBlock)` este en ese conjunto se usan en el analisis.
 
-2. **Parseo de triggers**: `SplitTriggerList()` separa la cadena `triggersToStudy` por comas en una lista de nombres de trigger.
+2. **desglosede triggers**: `SplitTriggerList()` separa la cadena `triggersToStudy` por comas en una lista de nombres de trigger.
 
 3. **Construccion del TChain**: se agregan los 24 archivos `.root` del subconjunto representativo a una unica cadena de eventos (`TChain`), y se verifica que los 24 se hayan cargado correctamente.
+  (Es posible agregar más archivos editando esta parte).
 
 4. **Lectura de ramas**: se conectan las variables del arbol `Events` (`run`, `luminosityBlock`, `nFatJet`, `FatJet_pt`, el booleano del trigger de referencia, y un booleano por cada trigger a estudiar) a variables en memoria mediante `SetBranchAddress`.
 

@@ -69,8 +69,18 @@ void TriggerEffi2(const char *triggersToStudy = "HLT_AK8PFJet360_TrimMass30",
 
 7. **Salida grafica**: se genera un canvas combinado (con tantos paneles como triggers se hayan pedido, en una grilla de hasta 2 columnas) y un PNG individual por cada trigger, con nombres que incluyen tanto el trigger estudiado como la referencia usada.
 
-### Comando de ejecución
+### Comando de ejecucion
 
 ```cpp
 root -l 'TriggerEffi2.C("<trigger_1>,<trigger_2>,...","<trigger_de_referencia>")'
+```
+Donde:
+
+- Primer argumento (entre comillas dobles): uno o varios triggers a estudiar, separados por coma sin espacios.
+- Segundo argumento: el trigger que se usará como referencia (condición del denominador).
+- Todo el comando va envuelto en comillas simples '...' para que la terminal de Linux no interfiera con las comillas dobles internas.
+
+*Ejemplo*:
+```cpp
+root -l 'TriggerEffi2.C("HLT_AK8PFJet450,HLT_AK8PFJet500","HLT_AK8PFJet200")'
 ```

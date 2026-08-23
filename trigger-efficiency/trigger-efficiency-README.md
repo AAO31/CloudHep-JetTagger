@@ -57,7 +57,7 @@ void TriggerEffi2(const char *triggersToStudy = "HLT_AK8PFJet360_TrimMass30",
 
 4. **Lectura de ramas**: se conectan las variables del arbol `Events` (`run`, `luminosityBlock`, `nFatJet`, `FatJet_pt`, el booleano del trigger de referencia, y un booleano por cada trigger a estudiar) a variables en memoria mediante `SetBranchAddress`.
 
-*Nota tecnica*: los booleanos de los triggers a estudiar se guardan en un `std::deque<Bool_t>` en vez de `std::vector<Bool_t>`, porque `std::vector<bool>` tiene una especializacion interna que empaqueta los valores bit a bit y no permite tomar la direccion de memoria de un elemento individual (`SetBranchAddress` necesita esa direccion). `std::deque<bool>` no tiene esa especializacion.
+*Nota*: los booleanos de los triggers a estudiar se guardan en un `std::deque<Bool_t>` en vez de `std::vector<Bool_t>`, porque `std::vector<bool>` tiene una especializacion interna que empaqueta los valores bit a bit y no permite tomar la direccion de memoria de un elemento individual (`SetBranchAddress` necesita esa direccion). `std::deque<bool>` no tiene esa especializacion.
 
 5. **Bucle sobre eventos**: para cada evento,
    - se descarta si su `(run, lumi)` no esta en el JSON;

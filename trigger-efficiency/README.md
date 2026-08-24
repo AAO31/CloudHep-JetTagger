@@ -1,4 +1,4 @@
-# Eficiencia de triggers de jets boosted (CMS Open Data, JetHT Run2016H)
+# Eficiencia de triggers (CMS Open Data, JetHT Run2016H)
 
 Esta carpeta contiene el analisis de eficiencia de triggers HLT de jets AK8,
 usado como paso previo a la construccion del identificador de jets boosted.

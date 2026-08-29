@@ -1,4 +1,4 @@
-# Entorno de trabajo: Docker (Python y ROOT)
+# Entorno de trabajo: Docker
 
 Esta carpeta documenta como instalar Docker y crear los contenedores usados
 para el analisis de CMS Open Data. Se empieza con los contenedores de Python y ROOT (usados para el analisis en formato NanoAOD); mas adelante se agregara aqui tambien la instalacion del contenedor de CMSSW, necesario para etapas del proyecto que trabajen con formatos AOD o MiniAOD.

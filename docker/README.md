@@ -8,8 +8,6 @@ para el analisis de CMS Open Data. Se empieza con los contenedores de Python y R
 - `gitlab-registry.cern.ch/cms-cloud/python-vnc:python3.10.5`
 - `gitlab-registry.cern.ch/cms-cloud/root-vnc:latest`
 
-(La imagen de CMSSW se documentara en una actualizacion futura de este
-archivo.)
 
 ## 1. Instalar Docker
 

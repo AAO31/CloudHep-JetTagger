@@ -16,9 +16,6 @@ archivo.)
 Instrucciones para Ubuntu/Debian y derivados (incluyendo Linux Mint).
 
 ```bash
-# Eliminar versiones antiguas o en conflicto
-sudo apt-get remove docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc
-
 # Actualizar el indice de paquetes
 sudo apt-get update
 
@@ -33,16 +30,6 @@ sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyring
 sudo chmod a+r /etc/apt/keyrings/docker.asc
 ```
 
-### Nota importante para Linux Mint
-
-Linux Mint no es Ubuntu puro: su `VERSION_CODENAME` (ej. `zena` para Mint 22.3) no es reconocido por el repositorio de Docker, y usar el script automatico de deteccion de codename produce un error de "release not found". La solucion es usar el `UBUNTU_CODENAME` real detras de tu version de Mint (se puede verificar con `cat /etc/os-release`). Por ejemplo, para Mint 22.3 "Zena" (basado en Ubuntu 24.04 "Noble"):
-
-```bash
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu noble stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-```
 
 ### Verificar la instalacion
 
@@ -78,8 +65,7 @@ Dentro del contenedor, para usar Jupyter Lab:
 jupyter-lab --ip=0.0.0.0 --no-browser
 ```
 
-Copia el enlace `http://...` que aparece en la consola y abrelo en tu
-navegador (si no carga, reemplaza `127.0.0.1` por `localhost`).
+Copiar el enlace `http://...` que aparece en la consola y abrirlo en tu navegador.
 
 ## 3. Crear el contenedor de ROOT
 

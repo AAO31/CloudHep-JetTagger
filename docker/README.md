@@ -104,18 +104,10 @@ docker start -i Mi_docker_de_Python
 docker start -i Mi_docker_de_Root
 ```
 
-## 5. Comandos utiles
-
-| Comando | Que hace |
-|---|---|
-| `docker ps -a` | Lista todos los contenedores (activos y detenidos) |
-| `docker exec -it Mi_docker_de_Root /bin/bash` | Entra a un contenedor que ya esta corriendo, sin detenerlo |
-| `docker rm <nombre>` | Elimina un contenedor detenido |
-| `docker start -i <nombre>` | Reanuda un contenedor detenido, en modo interactivo |
 
 ## Notas
 
 - El volumen montado (`-v host:/code`) es bidireccional: cualquier archivo creado dentro de `/code` en el contenedor aparece automaticamente en la carpeta del host, y viceversa.
 - Los nombres de carpeta (`cms_open_data_python`, `cms_open_data_root`) y de contenedor (`Mi_docker_de_Python`, `Mi_docker_de_Root`) son arbitrarios; se documentan aqui con estos nombres de ejemplo para claridad, pero pueden ajustarse a cualquier convencion siempre que se usen de forma consistente entre el `mkdir`, el `chmod` y el flag `-v` del `docker run`.
 
-## 6. Crear el contenedor de CMSSW
+## 5. Crear el contenedor de CMSSW

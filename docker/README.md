@@ -1,20 +1,15 @@
 # Entorno de trabajo: Docker (Python y ROOT)
 
 Esta carpeta documenta como instalar Docker y crear los contenedores usados
-para el analisis de CMS Open Data en formato NanoAOD. No se requiere CMSSW
-para este tipo de analisis (NanoAOD se analiza directamente con ROOT y/o
-Python), asi que solo se necesitan dos contenedores.
+para el analisis de CMS Open Data. Se empieza con los contenedores de Python y ROOT (usados para el analisis en formato NanoAOD); mas adelante se agregara aqui tambien la instalacion del contenedor de CMSSW, necesario para etapas del proyecto que trabajen con formatos AOD o MiniAOD.
 
-## Por que Docker y no CMSSW
-
-Los datasets usados en este proyecto estan en formato **NanoAOD**, un
-formato basado en arboles de ROOT que no requiere el software oficial de
-reconstruccion de CMS (CMSSW). Basta con un entorno que tenga ROOT y/o
-Python con las librerias adecuadas (uproot, awkward, etc.), que es
-exactamente lo que proveen las imagenes oficiales de CMS Open Data:
+## Imagenes usadas
 
 - `gitlab-registry.cern.ch/cms-cloud/python-vnc:python3.10.5`
 - `gitlab-registry.cern.ch/cms-cloud/root-vnc:latest`
+
+(La imagen de CMSSW se documentara en una actualizacion futura de este
+archivo.)
 
 ## 1. Instalar Docker
 
@@ -40,12 +35,7 @@ sudo chmod a+r /etc/apt/keyrings/docker.asc
 
 ### Nota importante para Linux Mint
 
-Linux Mint no es Ubuntu puro: su `VERSION_CODENAME` (ej. `zena` para Mint
-22.3) no es reconocido por el repositorio de Docker, y usar el script
-automatico de deteccion de codename produce un error de "release not
-found". La solucion es usar el `UBUNTU_CODENAME` real detras de tu version
-de Mint (se puede verificar con `cat /etc/os-release`). Por ejemplo, para
-Mint 22.3 "Zena" (basado en Ubuntu 24.04 "Noble"):
+Linux Mint no es Ubuntu puro: su `VERSION_CODENAME` (ej. `zena` para Mint 22.3) no es reconocido por el repositorio de Docker, y usar el script automatico de deteccion de codename produce un error de "release not found". La solucion es usar el `UBUNTU_CODENAME` real detras de tu version de Mint (se puede verificar con `cat /etc/os-release`). Por ejemplo, para Mint 22.3 "Zena" (basado en Ubuntu 24.04 "Noble"):
 
 ```bash
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu noble stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
@@ -139,11 +129,7 @@ docker start -i Mi_docker_de_Root
 
 ## Notas
 
-- El volumen montado (`-v host:/code`) es bidireccional: cualquier archivo
-  creado dentro de `/code` en el contenedor aparece automaticamente en la
-  carpeta del host, y viceversa.
-- Los nombres de carpeta (`cms_open_data_python`, `cms_open_data_root`) y de
-  contenedor (`Mi_docker_de_Python`, `Mi_docker_de_Root`) son arbitrarios;
-  se documentan aqui con estos nombres de ejemplo para claridad, pero
-  pueden ajustarse a cualquier convencion siempre que se usen de forma
-  consistente entre el `mkdir`, el `chmod` y el flag `-v` del `docker run`.
+- El volumen montado (`-v host:/code`) es bidireccional: cualquier archivo creado dentro de `/code` en el contenedor aparece automaticamente en la carpeta del host, y viceversa.
+- Los nombres de carpeta (`cms_open_data_python`, `cms_open_data_root`) y de contenedor (`Mi_docker_de_Python`, `Mi_docker_de_Root`) son arbitrarios; se documentan aqui con estos nombres de ejemplo para claridad, pero pueden ajustarse a cualquier convencion siempre que se usen de forma consistente entre el `mkdir`, el `chmod` y el flag `-v` del `docker run`.
+- Este documento se ira actualizando a medida que el proyecto lo requiera.
+  Proxima actualizacion pendiente: instalacion y uso del contenedor de CMSSW.
